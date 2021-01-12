@@ -1,14 +1,14 @@
 # [Issue Tracker](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker)
 
-##### Complete the necessary routes in /routes/api.js
+##### ~~Complete the necessary routes in /routes/api.js~~
 
-##### Create all of the functional tests in tests/\_functional-tests.js
+##### Create all of the functional tests in tests/2_functional-tests.js
 
-##### Copy the sample.env file to .env and set the variables appropriately
+##### ~~Copy the sample.env file to .env and set the variables appropriately~~
 
-##### To run the tests uncomment NODE_ENV=test in our .env file
+##### ~~To run the tests uncomment NODE_ENV=test in our .env file~~
 
-##### To run the tests in the console, use the comand npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type ..."open shell"
+##### ~~To run the tests in the console, use the comand npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type ..."open shell"~~
 
 ### Write the following tests in tests/2_functional-tests.js:
 
