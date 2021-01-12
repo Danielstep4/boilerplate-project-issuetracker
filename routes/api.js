@@ -13,8 +13,8 @@ module.exports = function (app) {
     assigned_to: { type: String, default: 'QA' },
     open: { type: Boolean, default: true },
     status_text: { type: String, default: 'In QA' }
-  })
-  const Issue = mongoose.model('Issue', schema)
+  });
+  const Issue = mongoose.model('Issue', schema);
   app.route('/api/issues/:project')
   
     .get(function (req, res){
@@ -29,7 +29,7 @@ module.exports = function (app) {
       }).save((err,issue) => {
         if(err) return console.log(err)
         console.log('New issue has been saved!')
-      })
+      });
     })
     
     .put(function (req, res){
