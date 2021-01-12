@@ -25,9 +25,8 @@ module.exports = function (app) {
       const findObj = {project, ...query}
       Issue.find(findObj, (err, issues) => {
         if(err) return console.log(err)
-        
         issues = issues.map((obj) => {
-          const newObj = {
+          return  {
             assigned_to: obj.assigned_to,
             status_text: obj.status_text,
             open: obj.open,
@@ -38,7 +37,6 @@ module.exports = function (app) {
             created_on: obj.created_on,
             updated_on: obj.updated_on
           }
-          return newObj
         })
         res.json(issues)
       })
@@ -46,7 +44,6 @@ module.exports = function (app) {
     
     .post(function (req, res){
       let project = req.params.project;
-      
       const userIssue = new Issue({
         ...req.body,
         project
