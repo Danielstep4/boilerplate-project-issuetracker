@@ -21,9 +21,11 @@ module.exports = function (app) {
   
     .get(function (req, res){
       let project = req.params.project;
-      console.log(project)
-      Issue.find({ project }, (err, issues) => {
+      const query = { ...req.query }
+      const findObj = {project, ...query}
+      Issue.find(findObj, (err, issues) => {
         if(err) return console.log(err)
+        
         issues = issues.map((obj) => {
           const newObj = {
             assigned_to: obj.assigned_to,
