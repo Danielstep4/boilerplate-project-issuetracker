@@ -47,7 +47,7 @@ module.exports = function (app) {
       const userIssue = new Issue({
         ...req.body,
         project
-      }).save(err => {
+      }).save((err,issue) => {
         if(err){
           res.json({
             error: 'required field(s) missing'
@@ -55,6 +55,7 @@ module.exports = function (app) {
           return console.error(err)
         }
         console.log('New issue has been saved!')
+        res.send(issue)
       });
     })
     
