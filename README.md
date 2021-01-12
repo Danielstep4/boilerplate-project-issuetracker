@@ -1,5 +1,6 @@
 # [Issue Tracker](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker)
 
+<<<<<<< HEAD
 ##### ~~Complete the necessary routes in /routes/api.js~~
 
 ##### Create all of the functional tests in tests/2_functional-tests.js
@@ -9,6 +10,17 @@
 ##### ~~To run the tests uncomment NODE_ENV=test in our .env file~~
 
 ##### ~~To run the tests in the console, use the comand npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type ..."open shell"~~
+=======
+##### Complete the necessary routes in /routes/api.js
+
+##### Create all of the functional tests in tests/\_functional-tests.js
+
+##### Copy the sample.env file to .env and set the variables appropriately
+
+##### To run the tests uncomment NODE_ENV=test in our .env file
+
+##### To run the tests in the console, use the comand npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type ..."open shell"
+>>>>>>> 77c6655 (added mongoose, added TODOs to README and deleted sample.env)
 
 ### Write the following tests in tests/2_functional-tests.js:
 
