@@ -67,13 +67,12 @@ module.exports = function (app) {
     })
     
     .put(function (req, res){
-      let project = req.params.project;
       let id = req.body["_id"]
       if(!id) {
         res.json({
           error: 'missing _id'
         })
-        return console.error('user tried to update but no id found.')
+        return console.log('user tried to update but no id found.')
       }
       delete req.body["_id"]
       if(!Object.keys(req.body).length) {
@@ -81,7 +80,7 @@ module.exports = function (app) {
           error: 'no update field(s) sent', 
           '_id': id
         })
-        return console.error('no update field(s) sent')
+        return console.log('no update field(s) sent')
       }
       let toUpdate = { 
         ...req.body, 
@@ -93,7 +92,7 @@ module.exports = function (app) {
             error: 'could not update', 
             '_id': id
           })
-          return console.error(err)
+          return console.log("error" + err)
         }
         console.log(`User with ${id} has been updated`)
         res.json({
@@ -104,21 +103,20 @@ module.exports = function (app) {
     })
     
     .delete(function (req, res){
-      let project = req.params.project;
       let id = req.body["_id"]
       if(!id) {
         res.json({
           error: 'missing _id'
         })
-        return console.error('user tried to update but no id found.')
+        return console.log('user tried to update but no id found.')
       }
-      Issue.findByIdAndDelete(id, err => {
-        if(err) {
+      Issue.findByIdAndDelete(id, (err, obj) => {
+        if(err || obj == null) {
           res.json({
             error: 'could not delete', 
             '_id': id
           })
-          return console.log(err)
+          return console.log("error" + err)
         }
         console.log(`User with ${id} has been deleted`)
         res.json({
