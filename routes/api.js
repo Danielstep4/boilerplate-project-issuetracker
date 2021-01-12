@@ -11,9 +11,9 @@ module.exports = function (app) {
     created_on: { type: Date, default: Date.now },
     updated_on: { type: Date, default: Date.now },
     created_by: { type: String, required: true },
-    assigned_to: String,
+    assigned_to: { type: String, default: ""},
     open: { type: Boolean, default: true },
-    status_text: String,
+    status_text: { type: String, default: ""},
     project: String
   });
   const Issue = mongoose.model('Issue', schema);
@@ -61,6 +61,7 @@ module.exports = function (app) {
           return console.error(err)
         }
         console.log('New issue has been saved!')
+        
         res.send(issue)
       });
     })
