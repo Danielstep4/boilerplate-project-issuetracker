@@ -73,7 +73,7 @@ module.exports = function (app) {
         res.json({
           error: 'missing _id'
         })
-        return console.log('user tried to update but no id found.')
+        return console.error('user tried to update but no id found.')
       }
       delete req.body["_id"]
       if(!Object.keys(req.body).length) {
@@ -81,14 +81,14 @@ module.exports = function (app) {
           error: 'no update field(s) sent', 
           '_id': id
         })
-        return console.log('no update field(s) sent')
+        return console.error('no update field(s) sent')
       }
       let toUpdate = { 
         ...req.body, 
         updated_on: Date.now()
        }
       Issue.findByIdAndUpdate(id, toUpdate, {new: true}, (err, issue) => {
-        if(err) {
+        if(err || issue == null) {
           res.json({
             error: 'could not update', 
             '_id': id
