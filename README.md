@@ -13,7 +13,7 @@
 =======
 ##### Complete the necessary routes in /routes/api.js
 
-##### Create all of the functional tests in tests/\_functional-tests.js
+##### Create all of the functional tests in tests/2_functional-tests.js
 
 ##### Copy the sample.env file to .env and set the variables appropriately
 
