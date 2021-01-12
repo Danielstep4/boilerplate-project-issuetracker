@@ -68,7 +68,22 @@ module.exports = function (app) {
     
     .put(function (req, res){
       let project = req.params.project;
-      
+      let id = req.body["_id"]
+      let toUpdate = { 
+        ...req.body, 
+        updated_on: Date.now()
+       }
+      delete toUpdate["_id"]
+      Issue.findByIdAndUpdate(id, toUpdate, {new: true}, (err, issue) => {
+        if(err) {
+          res.json({
+            error: 'no update field(s) sent', '_id': id
+          })
+          return console.error(err)
+        }
+        console.log(`User with ${id} has been updated`)
+        res.json(issue)
+      })
     })
     
     .delete(function (req, res){
