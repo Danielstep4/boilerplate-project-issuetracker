@@ -10,9 +10,9 @@ module.exports = function (app) {
     created_on: { type: Date, default: Date.now },
     updated_on: { type: Date, default: Date.now },
     created_by: { type: String, required: true },
-    assigned_to: String,
-    open: Boolean,
-    status_text: String
+    assigned_to: { type: String, default: 'QA' },
+    open: { type: Boolean, default: true },
+    status_text: { type: String, default: 'In QA' }
   })
   const Issue = mongoose.model('Issue', schema)
   app.route('/api/issues/:project')
@@ -24,6 +24,12 @@ module.exports = function (app) {
     
     .post(function (req, res){
       let project = req.params.project;
+      const userIssue = new Issue({
+        ...req.body
+      }).save((err,issue) => {
+        if(err) return console.log(err)
+        console.log('New issue has been saved!')
+      })
     })
     
     .put(function (req, res){
