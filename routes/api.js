@@ -105,7 +105,27 @@ module.exports = function (app) {
     
     .delete(function (req, res){
       let project = req.params.project;
-      
+      let id = req.body["_id"]
+      if(!id) {
+        res.json({
+          error: 'missing _id'
+        })
+        return console.error('user tried to update but no id found.')
+      }
+      Issue.findByIdAndDelete(id, err => {
+        if(err) {
+          res.json({
+            error: 'could not delete', 
+            '_id': id
+          })
+          return console.log(err)
+        }
+        console.log(`User with ${id} has been deleted`)
+        res.json({
+          result: 'successfully deleted',
+            '_id': id
+        })
+      })
     });
     
 };
